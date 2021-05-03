@@ -23,7 +23,6 @@ def importCsv(path, className, name):
                 line_count += 1
             else:
                 if row[1] == str(name).capitalize():
-                    # name = Entities()
                     className.init(f'{row[1]}', f'{row[2]}', f'{row[3]}', f'{row[12]}')
 link = Entities()
 ganon = Entities()
