@@ -1,4 +1,3 @@
-
 # Link => 60hp , 15str
 
 # Oponent => Bokoblin: 30hp, 5str
@@ -11,10 +10,9 @@
     # Heal => restore 50% hp
     # Attack => deal dmg based on str
 
-
 import csv
 
-class Players:
+class Entities:
     def init(self, name, hp, strength, rarity):
         self.name = name
         self.hp = hp
@@ -30,18 +28,38 @@ with open('ressources/players.csv') as csv_file:
             line_count += 1
         else:
             if row[1] == "Link":
-                link = Players()
+                link = Entities()
                 link.init(f'{row[1]}', f'{row[2]}', f'{row[3]}', f'{row[12]}')      
 
+# create Ganon Boss
+with open('ressources/bosses.csv') as csv_file:
+    csv_reader = csv.reader(csv_file, delimiter=',')
+    line_count = 0
+    for row in csv_reader:
+        if line_count == 0:
+            line_count += 1
+        else:
+            if row[1] == "Ganon":
+                ganon = Entities()
+                ganon.init(f'{row[1]}', f'{row[2]}', f'{row[3]}', f'{row[12]}')   
+
+# create Bokoblin ennemy
+with open('ressources/enemies.csv') as csv_file:
+    csv_reader = csv.reader(csv_file, delimiter=',')
+    line_count = 0
+    for row in csv_reader:
+        if line_count == 0:
+            line_count += 1
+        else:
+           if row[1] == "Bokoblin":
+                bokoblin = Entities()
+                bokoblin.init(f'{row[1]}', f'{row[2]}', f'{row[3]}', f'{row[12]}')  
 
 
 
-
-
-
-
-
-
+print(ganon.name)
+print(link.name)
+print(bokoblin.name)
 
 
 
